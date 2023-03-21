@@ -1,0 +1,9 @@
+type: Transaction
+spec:
+  id: QWwH37fVR
+  name: Pokeshop transaction
+  description: Pokeshop transaction
+  steps:
+  - Q73Kj7f4g
+  - 33O_CnfVR
+  - BSLCCnf4g

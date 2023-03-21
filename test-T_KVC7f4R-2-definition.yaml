@@ -1,0 +1,22 @@
+type: Test
+spec:
+  id: T_KVC7f4R
+  name: Pokeshop - List
+  description: Get a Pokemon
+  trigger:
+    type: http
+    httpRequest:
+      url: http://demo-pokemon-api.demo/pokemon?take=20&skip=0
+      method: GET
+      headers:
+      - key: Content-Type
+        value: application/json
+  specs:
+  - name: Check method on http spans
+    selector: span[tracetest.span.type="http"]
+    assertions:
+    - attr:http.method = "GET"
+  - name: Check db name on database spans
+    selector: span[tracetest.span.type="database"]
+    assertions:
+    - attr:db.name = "pokeshop"
