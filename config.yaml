@@ -1,0 +1,17 @@
+apiVersion: tests.testkube.io/v1
+kind: TestTrigger
+metadata:
+  name: deployment-scale-update-trigger
+  namespace: testkube
+spec:
+  resource: deployment
+  resourceSelector:
+    labelSelector:
+      matchLabels:
+        app.kubernetes.io/instance: demo
+  event: deployment-scale-update
+  action: run
+  execution: test
+  testSelector:
+    name: pokeshop-tracetest-test
+    namespace: testkube
